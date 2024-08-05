@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,52 +82,74 @@
             margin-top: 20px;
             text-align: center;
         }
+        #warning {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            z-index: 9999;
+            animation: pulse 2s infinite;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        @keyframes pulse {
+            0% { background-color: rgba(0, 0, 0, 0.7); }
+            50% { background-color: rgba(0, 0, 0, 1); }
+            100% { background-color: rgba(0, 0, 0, 0.7); }
+        }
+        #warning p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        #warning button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <div id="warning">
+        <p>الموقع يعرض جميع الايديات المتسربه معلوماتها او مسروقه او عليها مشاكل بشكل عام<br>فضلا عدم ازعاج المشرفين لحذف الحسابات المعروضه دون اثبات دليل علي سلامت الحساب</p>
+        <button onclick="acceptWarning()">موافق</button>
+    </div>
+
     <div class="header">
-      
-  
-
-
-   
-    <h1> this web for aids acc</h1>
-
-<h1>
-    <span style="color: purple;">status</span> 
-    <span style="color: red; animation: blink 3s infinite;">OcTo Offline</span>
-</h1>
-
-<style>
-@keyframes blink {
-    0% { color: green; }
-    50% { color: blue; }
-    100% { color: green; }
-}
-</style>
-
+        <h1>this web for aids acc</h1>
+        <h1>
+            <span style="color: purple;">status</span> 
+            <span style="color: red; animation: blink 3s infinite;">OcTo Offline</span>
+        </h1>
+        <style>
+            @keyframes blink {
+                0% { color: green; }
+                50% { color: blue; }
+                100% { color: green; }
+            }
+        </style>
         <h1>admin is Offline : Kabos💤 </h1>
         <h1>admin is Offline : @xyd_💤 </h1>
-
     </div>
+
     <div class="search-container">
         <input type="text" id="search" placeholder=" search PSN aids - البحث عن اسم الحساب" onkeyup="filterAccounts()">
     </div>
+
     <div class="container" id="account-container">
-        <!-- شايفك ي السبك مسوي هجركي 😂  -->
-   
 
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 
@@ -479,13 +500,11 @@ saudi : ash3ary@gmail.com" onclick="showDescription(this)">
 
 
 
-   
 
-        <!-- ي هكرجي لا تضرب الموقع ddos وتنزلها ستوري و تفلها تراك سبوكه -->
     </div>
+    
     <div id="description" class="description"></div>
     
-
     <script>
         function filterAccounts() {
             const searchValue = document.getElementById('search').value.toLowerCase();
@@ -506,6 +525,10 @@ saudi : ash3ary@gmail.com" onclick="showDescription(this)">
             const description = document.getElementById('description');
             description.innerText = descriptionText;
             description.style.display = 'block';
+        }
+
+        function acceptWarning() {
+            document.getElementById('warning').style.display = 'none';
         }
     </script>
 </body>
