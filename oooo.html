@@ -61,27 +61,30 @@
             const accountDescription = document.getElementById('accountDescription').value;
 
             if (accountName && accountDescription) {
-                const accountContainer = document.getElementById('account-container');
-                
-                const accountDiv = document.createElement('div');
-                accountDiv.className = 'account';
-                accountDiv.setAttribute('data-name', accountName);
-                accountDiv.setAttribute('data-description', accountDescription);
-                accountDiv.onclick = function() {
-                    showDescription(accountDiv);
-                };
+                const newAccountHTML = `
+                <div class="account" data-name="${accountName}" data-description="${accountDescription}" onclick="showDescription(this)">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+                    <div class="account-name">${accountName}</div>
+                </div>`;
 
-                const img = document.createElement('img');
-                img.src = 'https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png';
-                img.alt = 'PSN Logo';
+                // Read the existing HTML file
+                fetch('index.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        // Find the container and append the new account HTML
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const accountContainer = doc.getElementById('account-container');
+                        accountContainer.innerHTML += newAccountHTML;
 
-                const accountNameDiv = document.createElement('div');
-                accountNameDiv.className = 'account-name';
-                accountNameDiv.innerText = accountName;
-
-                accountDiv.appendChild(img);
-                accountDiv.appendChild(accountNameDiv);
-                accountContainer.appendChild(accountDiv);
+                        // Serialize the updated HTML and write it back to the file
+                        const updatedHTML = doc.documentElement.outerHTML;
+                        const blob = new Blob([updatedHTML], { type: 'text/html' });
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = 'index.html';
+                        a.click();
+                    });
             }
         }
 
