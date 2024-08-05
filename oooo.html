@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2em;
+            color: #4b0082;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-container input, .form-container textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4b0082;
+            color: #fff;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0000ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Add Account</h1>
+    </div>
+    <div class="form-container">
+        <input type="text" id="accountName" placeholder="Account Name">
+        <textarea id="accountDescription" placeholder="Account Description"></textarea>
+        <button onclick="addAccount()">Add Account</button>
+    </div>
+
+    <script>
+        function addAccount() {
+            const accountName = document.getElementById('accountName').value;
+            const accountDescription = document.getElementById('accountDescription').value;
+
+            if (accountName && accountDescription) {
+                const accountContainer = document.getElementById('account-container');
+                
+                const accountDiv = document.createElement('div');
+                accountDiv.className = 'account';
+                accountDiv.setAttribute('data-name', accountName);
+                accountDiv.setAttribute('data-description', accountDescription);
+                accountDiv.onclick = function() {
+                    showDescription(accountDiv);
+                };
+
+                const img = document.createElement('img');
+                img.src = 'https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png';
+                img.alt = 'PSN Logo';
+
+                const accountNameDiv = document.createElement('div');
+                accountNameDiv.className = 'account-name';
+                accountNameDiv.innerText = accountName;
+
+                accountDiv.appendChild(img);
+                accountDiv.appendChild(accountNameDiv);
+                accountContainer.appendChild(accountDiv);
+            }
+        }
+
+        function showDescription(account) {
+            const descriptionText = account.getAttribute('data-description');
+            const description = document.getElementById('description');
+            description.innerText = descriptionText;
+            description.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
