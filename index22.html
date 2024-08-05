@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,79 +83,411 @@
             margin-top: 20px;
             text-align: center;
         }
-        .login-container, .add-account-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .login-container input, .add-account-container input {
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-            border: none;
-        }
-        .login-container button, .add-account-container button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4b0082;
-            color: #fff;
-            cursor: pointer;
-        }
-        .login-container button:hover, .add-account-container button:hover {
-            background-color: #0000ff;
-        }
-        .add-account-container {
-            display: none;
-        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>this web for aids acc</h1>
-        <h1>
-            <span style="color: purple;">status</span> 
-            <span style="color: red; animation: blink 3s infinite;">OcTo Offline</span>
-        </h1>
-        <style>
-        @keyframes blink {
-            0% { color: green; }
-            50% { color: blue; }
-            100% { color: green; }
-        }
-        </style>
+      
+  
+
+
+   
+    <h1> this web for aids acc</h1>
+
+<h1>
+    <span style="color: purple;">status</span> 
+    <span style="color: red; animation: blink 3s infinite;">OcTo Offline</span>
+</h1>
+
+<style>
+@keyframes blink {
+    0% { color: green; }
+    50% { color: blue; }
+    100% { color: green; }
+}
+</style>
+
         <h1>admin is Offline : Kabos💤 </h1>
         <h1>admin is Offline : @xyd_💤 </h1>
-    </div>
-    <div class="login-container">
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-    </div>
-    <div class="add-account-container">
-        <input type="text" id="account-name" placeholder="Account Name">
-        <input type="text" id="account-description" placeholder="Account Description">
-        <button onclick="addAccount()">Add Account</button>
+
     </div>
     <div class="search-container">
-        <input type="text" id="search" placeholder="search PSN aids - البحث عن اسم الحساب" onkeyup="filterAccounts()">
+        <input type="text" id="search" placeholder=" search PSN aids - البحث عن اسم الحساب" onkeyup="filterAccounts()">
     </div>
     <div class="container" id="account-container">
-        <!-- Existing accounts will be dynamically added here -->
+        <!-- شايفك ي السبك مسوي هجركي 😂  -->
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="account" data-name="mkj-" data-description="them9230@gmail.com
+Tid : 78662685858560414" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">mkj-</div>
+        </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+<div class="account" data-name="RaA" data-description="OGE: rudicqlus@yahoo.com
+0G DOB: 01/09/1983
+Serial: CE125911342" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">RaA</div>
+        </div>
+
+
+
+
+
+    
+    
+    
+    
+    
+
+
+
+
+<div class="account" data-name="zx_" data-description="name: chris aniszczyk@gmail.com
+location: austin texas 78758" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">zx_</div>
+        </div>
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+
+
+
+<div class="account" data-name="RRR" data-description="Sol@soleil.ocn.ne.jp" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">RRR</div>
+        </div>
+
+
+
+
+
+
+
+<div class="account" data-name="nnn" data-description="Katana-spl@crocus.ocn.ne.jp" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">nnn</div>
+        </div>
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+<div class="account" data-name="mmw" data-description="Order Number: 333703437400
+Name: m m w
+Online ID: mmw
+Date Purchased: 04/02/2022" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">mmw</div>
+        </div>
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+
+
+
+<div class="account" data-name="Evil" data-description="Bestelnummer: 376843072412
+Naam: Evil exkazer
+Online-ID: Evil
+Aankoopdatum: 20/10/2022" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">Evil</div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="account" data-name="wf__" data-description="Name: Official Jordan
+Online ID: wf
+Date Purchased: 09/17/2021" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">wf__</div>
+        </div>
+
+        <div class="account" data-name="iNHHB" data-description="iNHB 🇺🇸
+
+E-mail sxder1234567890@gmail.com
+
+TID 786695168756102
+
+الايدي ينباع وينسحب انتبهو ف حراج" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">iNHB</div>
+        </div>
+
+
+
+
+        <div class="account" data-name="OFHJ" data-description="OFHJ M
+suffvlqh@gmail.com
+11223344mmH
+جواب سوال الامان : Fahad
+تاريخ الانشاء : 2014/6/26
+تاريخ الميلاد : 1987/3/4" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">OFHJ</div>
+        </div>
+
+
+
+
+
+
+        <div class="account" data-name="Wkdi" data-description="Wkdi 🇸🇦 
+Dob- 1986/11/10
+City- hhhhhhh
+Account id- 2968245193858600507
+Tids- 2023/02/12 a rose in the twilight- bouquet avatar bought on ps4 tid id (401550304324)
+(440874483850) (Spotify) (ps5)
+(432058554290) (twitch) (ps5)
+
+Ps4 serial - MB26734917
+ps5 serial - AL09723407
+
+Current login - wkdi455@yahoo.com 
+Pw - idontcheat40
+
+Oge - wkdi455@yahoo.com " onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">Wkdi</div>
+        </div>
+
+
+
+
+
+
+
+
+
+     <div class="account" data-name="OXJ" data-description="PSN: OXJ 
+OGMAIL :dc@eynsham.com
+OG name: John crozier
+CC: 4658-0086
+dob: 8/11/1972
+security question answer: tiffany
+Serial: 02274366233719126
+Old info to psn account Johncrozier700@outlook.com" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">OXJ</div>
+        </div>
+        <div class="account" data-name="Oain" data-description="Oain🇺🇸
+oge email: kaintos@yahoo.com
+og dob: 24/08/2001
+cc: 4610&2948
+tid: 488427091289
+tid: 488381734472
+
+PSN: lc_wq@outlook.com Oain" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">Oain</div>        
+        </div>
+        <div class="account" data-name="jguv" data-description="jguv
+Mazanalshamry@gmail.com
+order id : 786580507085076
+ملغم " onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">jguv</div>
+        </div>
+        <!-- لا تسرق الفكره و سورس الموقع ي هكرجي  -->
+        <div class="account" data-name="SAR🇫🇷" data-description="❌مسروق SAR" onclick="showDescription(this)">
+            <img src="https://i.ibb.co/TPK99Rz/IMG-4045.png" alt="PSN Logo">
+            <div class="account-name">SAR</div>
+        </div>
+        <div class="account" data-name="prjf" data-description="❌مسروق prjf" onclick="showDescription(this)">
+            <img src="https://i.ibb.co/TPK99Rz/IMG-4045.png" alt="PSN Logo">
+            <div class="account-name">prjf</div>
+        </div>
+        <div class="account" data-name="YRH3" data-description="YRH3 🇺🇸
+serial : MB09675694
+OGE: YRH333@yahoo.com
+OGE PW: xru2T4frgQjTtSy" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">YRH3</div>
+        </div>
+        <div class="account" data-name="lyW" data-description="hartlash2kar@gmail.com
+مسروق
+ملغم" onclick="showDescription(this)">
+            <img src="https://i.ibb.co/TPK99Rz/IMG-4045.png" alt="PSN Logo">
+            <div class="account-name">lyW</div>
+        </div>
+        <div class="account" data-name="I-j" data-description=" ❌مسروق ❌i-j" onclick="showDescription(this)">
+            <img src="https://i.ibb.co/TPK99Rz/IMG-4045.png" alt="PSN Logo">
+            <div class="account-name">I-j</div>
+        </div>
+        <div class="account" data-name="FQZD" data-description="OID- FQZD 🇺🇸
+OG EMAIL ACCESS
+uvmelzh@hotmail.com
+OG REAL-NAME: Meshal Abdulrahman
+01-01-1990   
+
+TID:786699424445254
+MC 5108****4029： $1.49
+
+Date Purchased: 07/13/2024
+786699424445254 Product Purchase 261626925141 1 149 USD  
+2024-07-13 UNCHARTED 2: Among Thieves™️ UNCHARTED Avatar Pack 6 Violence Web 786699375328966 Product Purchase 261600581333
+EXTRA TIDS : 786701939707910
+MW3 $38.49" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">FQZD</div>
+        </div>
+        <div class="account" data-name="Qwx-" data-description="ملغم " onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">Qwx-</div>
+        </div>
+        <div class="account" data-name="PDX" data-description="ID: PDX 🇺🇸
+OGE: the5est@comcast.net
+Og name : Forest Tribys-Colombi
+Address: 209 MEREDITH DR, Newberg Oregon, 97132
+VISA : 4867xxxxxxxx1805
+MC(5262xxxxxxxx2220)
+DOB : 04/25/04" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">PDX</div>
+        </div>
+        <div class="account" data-name="PSN 2023" data-description="- 4804341155
+DO- : Spka54v9@utopia.ocn.ne.jp
+xKx : Kdma77@hotmail.com (bust) 
+ty9 : tyler_penny93@hotmail.com - Tyler Penitch
+dmar : dallas_marley@hotmail.com backup dallas_marley@yahoo.com : backup: dallas.marley@ttu.edu    806-392-7954
+AID : accountusver@yahoo.co.jp 
+CruSh : ma.ownspace@hotmail.com
+PYY : pedro_yung@hotmail.com
+ND7 : kewellandy7@hotmail.com - Andy Wong
+IHH : hdzisrael@hotmail.com - Israel Hdz.
+ZZZ_ : alcoholic69@gmail.com - Alan Conzett
+q80 : hakbar@kuwaitenergy.com.kw (maybe og email)
+NorthKorea : Kangerz_@hotmail.com
+cdc : cdcrave@msn.com - Christopher Craven
+TAKEN : hoehoe66@acint.jp ( I FAILED AND BOUGHT THIS DOMAIN )
+BLUNTS : vertgo242@insightbb.com
+hu- : okanomado@ybb.ne.jp
+horrible : pmhorrocks@mac.com
+ORW : tasuku987649@yahoo.co.jp
+ 
+DRP : daniel.porter@au.harveynorman.com
+Tension : diablo@sztybers.com
+SIX : sixxpack@gmail.com
+DEMONS : paitan@m6.gyao.ne.jp
+Ravens : psmitheagle1@gmail.com
+FR_ : fede.blanco@hotmail.com
+singer : mlkjforbis@yahoo.com
+AW- : slick@live.fr
+af- : 4/29/1987 --> pkarraf87@gmail.com 
+GRS : gsmith802003@yahoo.com
+Gby : gby.tyyppi@dnainternet.net
+BitCoin : dcgumb@gmail.com
+THREATS : mightypoop209@yahoo.com
+vzw : deastin52@att.net / acc number 89143526  
+Mexico : jsobel@usfca.edu (not on a psn)
+FFF : spiderman669@gmail.com
+Dyo : w0304684@selu.edu
+dyd : vincenzoresta@gmail.com
+Edy : eetu.siikanen@hotmail.com
+SiK : aftershock1525@yahoo.com 5705614696 Brandan Glover
+fax : franske13@pandora.be
+NorthernPride707 : thomasbaldwin@yahoo.com
+snap : tharquin@yahoo.com
+LOD : paoneltelo@googlemail.com
+B13 : brl011@latech.edu 
+eff : fruity_pretty_trick@yahoo.com
+Burgers : burgers@f2s.com
+gavin : gavinroach@yahoo.com 
+QATAR : bluesq6r@hotmail.com (og email?) 
+Default : Arnoldzgreat@yahoo.com / (713)-725-7217
+X-4 : kengou76@yahoo.co.jp
+Cook : twyan1@yahoo.com
+KFA : travispezzera@gmail.com
+Pak : Fybtq811@ybb.ne.jp
+BBB : victim@wmail.plala.or.jp 
+book : book@yahoo.co.jp
+iij : iij515@yahoo.co.jp
+saudi : ash3ary@gmail.com" onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">PSN 2024</div>
+        </div>
+        <div class="account" data-name="umxm" data-description="ملغلم - مسروق " onclick="showDescription(this)">
+            <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
+            <div class="account-name">umxm</div>
+        </div>
+
+
+
+   
+
+        <!-- ي هكرجي لا تضرب الموقع ddos وتنزلها ستوري و تفلها تراك سبوكه -->
     </div>
     <div id="description" class="description"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load saved accounts from localStorage
-            const savedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
-            savedAccounts.forEach(account => addAccountToPage(account.name, account.description));
-        });
+    
 
+    <script>
         function filterAccounts() {
             const searchValue = document.getElementById('search').value.toLowerCase();
             const accounts = document.querySelectorAll('.account');
+
             accounts.forEach(account => {
                 const name = account.getAttribute('data-name').toLowerCase();
                 if (name.includes(searchValue)) {
@@ -170,53 +503,6 @@
             const description = document.getElementById('description');
             description.innerText = descriptionText;
             description.style.display = 'block';
-        }
-
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if ((username === 'octo' || username === 'xyd') && password === 'qweretertdsf@dd') {
-                document.querySelector('.add-account-container').style.display = 'flex';
-                document.querySelector('.login-container').style.display = 'none';
-            } else {
-                alert('Invalid login credentials');
-            }
-        }
-
-        function addAccount() {
-            const name = document.getElementById('account-name').value;
-            const description = document.getElementById('account-description').value;
-            if (name && description) {
-                // Add account to page and localStorage
-                addAccountToPage(name, description);
-                saveAccountToLocalStorage(name, description);
-                document.getElementById('account-name').value = '';
-                document.getElementById('account-description').value = '';
-            } else {
-                alert('Please enter both account name and description');
-            }
-        }
-
-        function addAccountToPage(name, description) {
-            const accountContainer = document.getElementById('account-container');
-            const accountDiv = document.createElement('div');
-            accountDiv.className = 'account';
-            accountDiv.setAttribute('data-name', name);
-            accountDiv.setAttribute('data-description', description);
-            accountDiv.innerHTML = `
-                <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
-                <div class="account-name">${name}</div>
-            `;
-            accountDiv.addEventListener('click', function() {
-                showDescription(accountDiv);
-            });
-            accountContainer.appendChild(accountDiv);
-        }
-
-        function saveAccountToLocalStorage(name, description) {
-            const savedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
-            savedAccounts.push({ name, description });
-            localStorage.setItem('accounts', JSON.stringify(savedAccounts));
         }
     </script>
 </body>
