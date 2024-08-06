@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIDS BLACK List ACC</title>
+    <title>Admin Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,16 +24,34 @@
             0% { color: #0000ff; }
             100% { color: #4b0082; }
         }
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        .search-container input {
+        .form-container input, .form-container textarea {
+            width: 100%;
             padding: 10px;
-            width: 300px;
+            margin: 10px 0;
             border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #222;
+            color: #fff;
+        }
+        .form-container button {
+            padding: 10px 20px;
             border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
         }
         .container {
             display: flex;
@@ -67,11 +85,6 @@
             font-weight: bold;
             color: #333;
         }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-        }
         .description {
             display: none;
             background-color: #fff;
@@ -82,141 +95,102 @@
             margin-top: 20px;
             text-align: center;
         }
-        .login-container, .add-account-container {
+        #warning {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px;
-        }
-        .login-container input, .add-account-container input {
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-            border: none;
-        }
-        .login-container button, .add-account-container button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4b0082;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
             color: #fff;
+            z-index: 9999;
+            animation: pulse 2s infinite;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        @keyframes pulse {
+            0% { background-color: rgba(0, 0, 0, 0.7); }
+            50% { background-color: rgba(0, 0, 0, 1); }
+            100% { background-color: rgba(0, 0, 0, 0.7); }
+        }
+        #warning p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        #warning button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
-        }
-        .login-container button:hover, .add-account-container button:hover {
-            background-color: #0000ff;
-        }
-        .add-account-container {
-            display: none;
         }
     </style>
 </head>
 <body>
+    <div id="warning">
+        <p>الموقع يعرض جميع الايديات المتسربه معلوماتها او مسروقه او عليها مشاكل بشكل عام<br>فضلا عدم ازعاج المشرفين لحذف الحسابات المعروضه دون اثبات دليل علي سلامت الحساب</p>
+        <button onclick="acceptWarning()">موافق</button>
+    </div>
+
     <div class="header">
-        <h1>this web for aids acc</h1>
-        <h1>
-            <span style="color: purple;">status</span> 
-            <span style="color: red; animation: blink 3s infinite;">OcTo Offline</span>
-        </h1>
-        <style>
-        @keyframes blink {
-            0% { color: green; }
-            50% { color: blue; }
-            100% { color: green; }
-        }
-        </style>
-        <h1>admin is Offline : Kabos💤 </h1>
-        <h1>admin is Offline : @xyd_💤 </h1>
+        <h1>Admin Page</h1>
     </div>
-    <div class="login-container">
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
+
+    <div class="form-container">
+        <h2>Add New Account</h2>
+        <form id="admin-form">
+            <input type="text" id="username" placeholder="اسم المستخدم" required>
+            <textarea id="description" placeholder="الوصف" rows="4" required></textarea>
+            <button type="submit">إضافة حساب</button>
+        </form>
     </div>
-    <div class="add-account-container">
-        <input type="text" id="account-name" placeholder="Account Name">
-        <input type="text" id="account-description" placeholder="Account Description">
-        <button onclick="addAccount()">Add Account</button>
-    </div>
-    <div class="search-container">
-        <input type="text" id="search" placeholder="search PSN aids - البحث عن اسم الحساب" onkeyup="filterAccounts()">
-    </div>
+
     <div class="container" id="account-container">
-        <!-- Existing accounts will be dynamically added here -->
+        <!-- حسابات موجودة هنا -->
     </div>
-    <div id="description" class="description"></div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load saved accounts from localStorage
-            const savedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
-            savedAccounts.forEach(account => addAccountToPage(account.name, account.description));
-        });
-
-        function filterAccounts() {
-            const searchValue = document.getElementById('search').value.toLowerCase();
-            const accounts = document.querySelectorAll('.account');
-            accounts.forEach(account => {
-                const name = account.getAttribute('data-name').toLowerCase();
-                if (name.includes(searchValue)) {
-                    account.style.display = 'block';
-                } else {
-                    account.style.display = 'none';
-                }
-            });
-        }
-
-        function showDescription(account) {
-            const descriptionText = account.getAttribute('data-description');
-            const description = document.getElementById('description');
-            description.innerText = descriptionText;
-            description.style.display = 'block';
-        }
-
-        function login() {
+        document.getElementById('admin-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
             const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            if ((username === 'octo' || username === 'xyd') && password === 'AA') {
-                document.querySelector('.add-account-container').style.display = 'flex';
-                document.querySelector('.login-container').style.display = 'none';
-            } else {
-                alert('Invalid login credentials');
-            }
-        }
+            const description = document.getElementById('description').value;
 
-        function addAccount() {
-            const name = document.getElementById('account-name').value;
-            const description = document.getElementById('account-description').value;
-            if (name && description) {
-                // Add account to page and localStorage
-                addAccountToPage(name, description);
-                saveAccountToLocalStorage(name, description);
-                document.getElementById('account-name').value = '';
-                document.getElementById('account-description').value = '';
-            } else {
-                alert('Please enter both account name and description');
-            }
-        }
-
-        function addAccountToPage(name, description) {
-            const accountContainer = document.getElementById('account-container');
+            // إنشاء عنصر جديد للحساب
             const accountDiv = document.createElement('div');
-            accountDiv.className = 'account';
-            accountDiv.setAttribute('data-name', name);
+            accountDiv.classList.add('account');
+            accountDiv.setAttribute('data-name', username);
             accountDiv.setAttribute('data-description', description);
             accountDiv.innerHTML = `
                 <img src="https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png" alt="PSN Logo">
-                <div class="account-name">${name}</div>
+                <div class="account-name">${username}</div>
             `;
-            accountDiv.addEventListener('click', function() {
+            accountDiv.onclick = function() {
                 showDescription(accountDiv);
-            });
-            accountContainer.appendChild(accountDiv);
-        }
+            };
 
-        function saveAccountToLocalStorage(name, description) {
-            const savedAccounts = JSON.parse(localStorage.getItem('accounts')) || [];
-            savedAccounts.push({ name, description });
-            localStorage.setItem('accounts', JSON.stringify(savedAccounts));
+            // إضافة الحساب إلى الحاوية
+            document.getElementById('account-container').appendChild(accountDiv);
+
+            // مسح النموذج
+            document.getElementById('username').value = '';
+            document.getElementById('description').value = '';
+        });
+
+        function showDescription(element) {
+            const description = element.getAttribute('data-description');
+            alert(description);
+        }
+        
+        function acceptWarning() {
+            document.getElementById('warning').style.display = 'none';
         }
     </script>
 </body>
