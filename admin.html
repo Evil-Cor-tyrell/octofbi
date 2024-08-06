@@ -1,42 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <head>
-	<meta charset="UTF-8">
-	<title>Evil Corp</title>
-	<link rel="stylesheet" href="style.css">
-	<style>
-		.tlinks a {
-			display: block;
-			margin-top: 10px;
-		}
-		.tlinks a.forgot-password {
-			color: red;
-		}
-		.tlinks a.signup {
-			color: green;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Evil Corp</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff; 
+        }
+        .box {
+            position: relative;
+            width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #333;
+            background-color: #fff; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+        .inputBox {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .inputBox input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .inputBox span {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            transition: 0.3s;
+        }
+        .inputBox input:focus + span,
+        .inputBox input:valid + span {
+            top: -20px;
+            left: 10px;
+            color: #03a9f4;
+            font-size: 12px;
+        }
+        .tlinks a {
+            display: block;
+            margin-top: 10px;
+        }
+        .tlinks a.forgot-password {
+            color: red;
+        }
+        .tlinks a.signup {
+            color: green;
+        }
+        .popup-background {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9998;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            text-align: center;
+            z-index: 9999;
+        }
+        .popup .message {
+            color: red;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .popup .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+            float: right;
+        }
+        .loader {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid #fff;
+            border-top: 5px solid #03a9f4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 10000;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-	<div class="box">
-		<form autocomplete="off">
-			<h2>Sign in</h2>
-			<div class="inputBox">
-				<input type="text" required="required">
-				<span>Username</span>
-				<i></i>
-			</div>
-			<div class="inputBox">
-				<input type="password" required="required">
-				<span>Password</span>
-				<i></i>
-			</div>
-			<div class="tlinks">
-				<a href="re.html" class="forgot-password">Forgot Password ?</a>
-				<a href="up.html" class="signup">Signup</a>
-			</div>
-			<input type="submit" value="Login">
-		</form>
-	</div>
+    <div class="box">
+        <form id="loginForm" autocomplete="off" onsubmit="handleSubmit(event)">
+            <h2>Sign in</h2>
+            <div class="inputBox">
+                <input type="text" id="username" required="required">
+                <span>Username</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="password" required="required">
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="tlinks">
+                <a href="ZKXJ@%^*_Kwkei@-823.html" class="forgot-password">Forgot Password ?</a>
+                <a href="ZKXJ@%^*_janndnnf.html" class="signup">Signup</a>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div class="loader" id="loader"></div>
+
+    <div class="popup-background" id="popupBackground"></div>
+
+    <div class="popup" id="popup">
+        <button class="close-btn" onclick="closePopup()">&times;</button>
+        <div class="message">The information entered is incorrect</div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            document.getElementById('loader').style.display = 'block';
+
+            setTimeout(function() {
+
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('popupBackground').style.display = 'block';
+                document.getElementById('popup').style.display = 'block';
+            }, 2000);
+        }
+
+        function closePopup() {
+            document.getElementById('popupBackground').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
