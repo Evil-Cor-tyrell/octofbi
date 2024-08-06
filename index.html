@@ -604,49 +604,8 @@ saudi : ash3ary@gmail.com" onclick="showDescription(this)">
 
 
 
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OS Info</title>
-</head>
-<body>
-    <h1>معلومات الجهاز</h1>
-    <p id="ip">  IP: جاري التحميل...</p>
-    <p id="device">نوع الجهاز: جاري التحميل...</p>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            async function getIpAddress() {
-                const ipUrl = 'https://api.ipify.org?format=json';
-                try {
-                    const response = await fetch(ipUrl);
-                    const data = await response.json();
-                    return data.ip;
-                } catch (error) {
-                    return 'unknow';
-                }
-            }
-
-
-            async function updateDeviceInfo() {
-                const ip = await getIpAddress();
-                const userAgent = navigator.userAgent;
-                
-
-                document.getElementById('ip').textContent = `عنوان الـ IP: ${ip}`;
-                document.getElementById('device').textContent = `نوع الجهاز: ${userAgent}`;
-            }
-
-            updateDeviceInfo();
-        });
-    </script>
-</body>
-</html>
-
-
+        <!----------------مو لذي درجه فاقد الامل شكلك هكرجي مسكين😔   ---------------->
 
 
 
