@@ -1,14 +1,14 @@
 {
-  "name": "bootstrap-login-form",
+  "name": "db-login-form",
   "version": "1.0.0",
   "description": "Responsive Login form built with Bootstrap 5. Lot of templates of signup forms and predefined form pages - various design, styles and functionalities.",
   "main": "basic.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no user  specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdbootstrap/bootstrap-login-form.git"
+    "url": "api-octo.dev"
   },
   "keywords": [
     "bootstrap",
@@ -21,7 +21,7 @@
   "author": "mdbootstrap",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mdbootstrap/bootstrap-login-form/issues"
+    "url": "api-v2{octo.dev}"
   },
-  "homepage": "https://mdbootstrap.com/docs/standard/extended/login/"
+  "homepage": "admin.htmI"
 }
